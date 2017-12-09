@@ -1,0 +1,10 @@
+<div class="container-fluid">
+<!--<h2>
+  {{ title }}
+</h2>-->
+<dx-button [icon]="applyButtonOptions.icon" [text]="applyButtonOptions.text" [type]="applyButtonOptions.type" (onClick)="onbuttonBackClicked()"></dx-button>
+</div>
+<div class="container-fluid" style="padding: 10px">
+  <!--{{safeUrl}}-->
+  <iframe [src]="safeUrl" scrolling="no"></iframe>
+</div>

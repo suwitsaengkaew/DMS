@@ -1,0 +1,38 @@
+dx-button {
+    display: inline-block;
+    margin: 4px 2px;
+    cursor: pointer;
+}
+
+.inline-group {
+    display: inline-block;
+}
+
+.form-container {
+    display: inline-flex;
+    width: 100%;
+    margin: 4px 2px;
+    padding: 10px;
+}
+
+table {
+    width: 500px;
+}
+
+table tr td {
+    padding: 5px;
+    width: 50px;
+}
+
+a {
+    width: 150px;
+}
+
+dx-select-box {
+    width: 180px;
+}
+
+.data-grid {
+    padding-top: 10px;
+    overflow: scroll;
+}

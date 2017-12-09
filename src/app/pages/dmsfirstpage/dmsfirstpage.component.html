@@ -1,0 +1,49 @@
+<div class="container-fluid">
+  <!--<a href="javascript:void(0)" (click)="gotopdfviewer('/dmspdfviewer')">DMS PDF Viewer</a>-->
+  <table>
+    <tr>
+      <td>
+        <dx-select-box [style.border-color]="plantcolor" #selectPlant placeholder="Select Plant" [dataSource]="plant" displayExpr="DOC_Plant"
+          valueExpr="DOC_Plant" (onSelectionChanged)="SelectionChanged('plant')">
+        </dx-select-box>
+     </td>
+      <td>
+        <dx-select-box [style.border-color]="sectioncolor" #selectSection placeholder="Select Process" [dataSource]="section" displayExpr="DOC_SEC"
+          valueExpr="DOC_SEC" (onSelectionChanged)="SelectionChanged('section')">
+        </dx-select-box>
+      </td>
+      <td>
+        <dx-select-box [style.border-color]="doctypecolor" #selectDocType placeholder="Select Doc Type" [dataSource]="doctype" displayExpr="DOC_TYPE"
+          valueExpr="DOC_TYPE" (onSelectionChanged)="SelectionChanged('doctype')">
+        </dx-select-box>
+      </td>
+      <!--<td>
+        <a href="javascript:void(0)" class="btn btn-success" (click)="getDocument(selectPlant.value, selectSection.value, selectDocType.value )" role="button">Search Document</a>
+      </td>-->
+      <td>
+        <dx-button [text]="applyButtonOptions.text" [type]="applyButtonOptions.type" (onClick)="getDocument(selectPlant.value, selectSection.value, selectDocType.value )"></dx-button>
+      </td>
+    </tr>
+  </table>
+  <hr>
+  <div class="container-fluid">
+    <dx-data-grid id="gridContainer" [dataSource]="dataSource" [allowColumnReordering]="true" [allowColumnResizing]="true" [hoverStateEnabled]="true"
+      [columnAutoWidth]="true">
+      <dxo-paging [pageSize]="10">
+      </dxo-paging>
+      <dxo-search-panel [visible]="true" [width]="240" placeholder="Search...">
+      </dxo-search-panel>
+      <dxo-pager [showPageSizeSelector]="true" [allowedPageSizes]="[5, 10, 20]" [showInfo]="true">
+      </dxo-pager>
+      <dxi-column dataField="DOC_Plant" caption="Plant" [width]="100"></dxi-column>
+      <dxi-column dataField="DOC_SEC" caption="Section" [width]="100"></dxi-column>
+      <dxi-column dataField="DOC_TYPE" caption="Document Type" [width]="150"></dxi-column>
+      <dxi-column dataField="DOC_ID" caption="Document ID" [width]="200"></dxi-column>
+      <dxi-column dataField="DOC_NAME" caption="Document Name"></dxi-column>
+      <dxi-column dataField="DOC_URL" caption="Document URL" [width]="160" cellTemplate="cellTemplate"></dxi-column>
+      <div *dxTemplate="let data of 'cellTemplate'">
+        <a target="blank" href="javascript:void(0)" class="btn btn-success btn-sm" role="button" (click)="gotopdfviewer(data.value)">Click Open Doc</a>
+      </div>
+    </dx-data-grid>
+  </div>
+</div>
