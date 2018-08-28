@@ -79,6 +79,14 @@ export class DmsFirstPageComponent implements OnInit {
   }
 
   SelectionChanged(selected: string) {
+    // switch (selected) {
+    //   case value:
+        
+    //     break;
+    
+    //   default:
+    //     break;
+    // }
     if (selected == 'plant') { this.plantcolor = null }
     if (selected == 'section') { this.sectioncolor = null }
     if (selected == 'doctype') { this.doctypecolor = null }
